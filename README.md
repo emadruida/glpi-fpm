@@ -2,7 +2,9 @@
 
 [![Docker Image CI](https://github.com/emadruida/glpi-fpm/actions/workflows/main.yml/badge.svg)](https://github.com/emadruida/glpi-fpm/actions/workflows/main.yml)
 
-Docker container that serves GLPI via php-fpm. A proxy server is needed to redirect traffic to the php-fpm gateway.
+Docker container that serves GLPI via php-fpm.
+
+A proxy server is needed to redirect traffic to the php-fpm gateway.
 
 ## How to use this image
 

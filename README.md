@@ -15,21 +15,16 @@ version: '3.9'
 
 services:
   glpi:
-    container_name: glpi
     image: emadruida/glpi-fpm
-    volumes:
-      - ./glpi/files:/var/www/html/glpi/files
-      - ./glpi/config:/var/www/html/glpi/config
-      - ./glpi/plugins:/var/www/html/glpi/plugins
-      - ./glpi/marketplace:/var/www/html/glpi/marketplace
-  
-  nginx:
-    container_name: nginx
-    image: nginx:alpine
+    container_name: glpi
+    restart: always
     ports:
       - "80:80"
     volumes:
-      - ./glpi-nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./glpi/files:/var/www/glpi/files
+      - ./glpi/config:/var/www/glpi/config
+      - ./glpi/plugins:/var/www/glpi/plugins
+      - ./glpi/marketplace:/var/www/glpi/marketplace
   
   db:
     image: mysql
@@ -51,30 +46,6 @@ In the same folder as the `docker-compose.yml` file, create the following direct
 
 For the mysql container, create the `mysql/data` directory in the same folder where the
 `docker-compose.yml` file is located.
-
-The `glpi-nginx.conf` file is the configuration for the nginx server to serve the glpi site:
-
-```conf
-server {
-    listen 0.0.0.0:80;
-
-    server_name glpi.localhost;
-
-    root /var/www/html/glpi/public;
-
-    location / {
-        try_files $uri /index.php$is_args$args;
-    }
-
-    location ~ ^/index\.php$ {
-        fastcgi_pass glpi:9000;
-
-        fastcgi_split_path_info ^(.+\.php)(/.*)$;
-        include fastcgi_params;
-
-        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
-    }
-}
 ```
 
 Execute docker compose up:

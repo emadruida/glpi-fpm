@@ -46,7 +46,6 @@ In the same folder as the `docker-compose.yml` file, create the following direct
 
 For the mysql container, create the `mysql/data` directory in the same folder where the
 `docker-compose.yml` file is located.
-```
 
 Execute docker compose up:
 

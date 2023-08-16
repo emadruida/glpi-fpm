@@ -24,7 +24,7 @@ RUN ln -sf /dev/stdout ${NGINX_LOG_DIR}/access.log \
     && ln -sf /dev/stderr ${PHP_LOG_DIR}/error.log
 
 # Download GLPI
-ARG GLPI_VERSION=10.0.9
+ENV GLPI_VERSION=10.0.9
 WORKDIR /var/www/
 RUN curl -sSLf https://github.com/glpi-project/glpi/releases/download/${GLPI_VERSION}/glpi-${GLPI_VERSION}.tgz | tar -zx
 

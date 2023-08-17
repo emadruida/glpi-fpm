@@ -4,8 +4,6 @@
 
 Docker container that serves GLPI via php-fpm.
 
-A proxy server is needed to redirect traffic to the php-fpm gateway.
-
 ## How to use this image
 
 A sample configuration using compose could be the following `docker-compose.yml` file:
@@ -32,7 +30,6 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=mysupersecurepassword
-      - MYSQL_DATABASE=glpi
     volumes:
       - ./mysql/data:/var/lib/mysql
 ```

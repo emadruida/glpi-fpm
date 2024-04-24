@@ -1,7 +1,7 @@
 FROM nginx:alpine-slim
 
-ENV PHP_ETC_DIR=/etc/php81
-ENV PHP_LOG_DIR=/var/log/php81
+ENV PHP_ETC_DIR=/etc/php82
+ENV PHP_LOG_DIR=/var/log/php82
 ENV NGINX_ETC_DIR=/etc/nginx
 ENV NGINX_LOG_DIR=/var/log/nginx
 

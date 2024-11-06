@@ -28,4 +28,4 @@ ENV GLPI_VERSION=10.0.17
 WORKDIR /var/www/
 RUN curl -sSLf https://github.com/glpi-project/glpi/releases/download/${GLPI_VERSION}/glpi-${GLPI_VERSION}.tgz | tar -zx
 
-CMD [ "/bin/bash", "-c", "php-fpm82 && chmod -R 777 /var/www/* && nginx -g 'daemon off;'" ]
+CMD [ "/bin/bash", "-c", "php-fpm83 && chmod -R 777 /var/www/* && nginx -g 'daemon off;'" ]
